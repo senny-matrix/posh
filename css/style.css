@@ -32,12 +32,172 @@ body{
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
 }
 
 .logo-box{
-
+    position: absolute;
+    top:40px; /* Remember to set position to relative in the parent */
+    left: 40px;
 }
 
 .logo{
-    
+    height: 35px;
+}
+
+/*
+.logo:hover{
+    animation: ease-in-out moveInRight 5s;
+}
+*/
+
+.text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.heading-primary{
+    color: #ffffff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main{
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 13px;
+    animation-name: moveInLeft;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+}
+
+.heading-primary-sub{
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 11px;
+    animation: ease-in-out moveInRight 5s;
+    /*
+    animation-name: moveInRight;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out; */
+}
+
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+.btn:active { /*When we click*/
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.4);
+}
+
+.btn-white{
+    background-color: white;
+    color: #777777;
+}
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: white;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated{
+    animation: moveInBottom .5 ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    30% {
+        transform: rotate(5deg);
+    }
+
+    60% {
+        opacity: .5;
+        transform: translateX(20px);
+    }
+
+    90%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    30% {
+        transform: rotate(-5deg);
+    }
+
+    60% {
+        opacity: .5;
+        transform: translateX(-20px);
+    }
+
+    90% {
+        transform: rotate(0deg);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
